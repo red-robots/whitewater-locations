@@ -736,6 +736,136 @@ jQuery(document).ready(function($){
         }
     }
 
+
+
+
+
+
+
+
+    /* select custom icons */
+    if( $('div.acf-field[data-name="custom_icon_copy"]').length>0 ) {
+        var customIconDiv = $('div.acf-field[data-name="custom_icon_copy"]');
+        //var input = $(this).find('div.acf-field[data-name="custom_icon"] .acf-input-wrap input');
+        // var input = $('div.acf-field[data-name="custom_icon"] .acf-input-wrap input');
+        // var id = input.attr("id");
+        // var icon = input.val();
+        // var label = (icon) ? 'Edit' : 'Add Icon';
+        // var btn = '<span class="cusIcon"><i class="'+icon+'"></i></span><a href="#" data-icon="'+icon+'" class="iconOptBtn">'+label+'</a>';
+        // $(btn).insertAfter(input);
+        customIconDiv.each(function(){
+            var input = $(this).find('.acf-input-wrap input');
+            var id = input.attr("id");
+            var icon = input.val();
+            var label = (icon) ? 'Edit' : 'Add Icon';
+            var btn = '<span class="cusIcon"><i class="'+icon+'"></i></span><a href="#" data-icon="'+icon+'" class="iconOptBtn">'+label+'</a>';
+            $(btn).insertAfter(input);
+        });
+        
+        $(document).on("click",".customIconBtn",function(e){
+            e.preventDefault();
+            $("#customIconsContainer").show();
+        });
+        $(document).on("click",".iconOptBtn",function(e){
+            e.preventDefault();
+            var icon = $(this).attr("data-icon");
+            //var parent = customIconDiv;
+            var parent = $(this).parents('[data-name="custom_icon_copy"]');
+            var inputId = parent.find(".acf-input-wrap input").attr("id");
+            $("#customIconsContainer").show();
+            parent.addClass("selected");
+            if(icon) {
+                //$("#customIconsContainer").attr("data-assign",inputId);
+                $('.iconBox .w[data-icon="'+icon+'"]').parent().addClass("selected");
+            }
+        });
+
+        $(document).on("click","#closeIconList",function(e){
+            e.preventDefault();
+            $("#customIconsContainer").hide();
+            $("#customIconsContainer").attr("data-assign","");
+            $("#customIconsContainer .iconBox").removeClass('selected');
+            $('div.acf-field[data-name="custom_icon_copy"]').removeClass('selected');
+        });
+        $(document).on("click",".iconBox .w",function(e){
+            e.preventDefault();
+            var icon = $(this).attr("data-icon");
+            // var input = customIconDiv.find('.acf-input-wrap input');
+            // var inputId = $("#customIconsContainer").attr("data-assign");
+            // var parent = customIconDiv;
+            var parent = $('div.acf-field[data-name="custom_icon_copy"].selected');
+            var input = parent.find('.acf-input-wrap input');
+            input.val(icon);
+            parent.find("span.cusIcon i").removeAttr("class").addClass(icon);
+            parent.find(".iconOptBtn").attr("data-icon",icon);
+            parent.find(".iconOptBtn").text('Edit');
+            $("#closeIconList").trigger("click");
+        });
+    }
+
+    if( $('th[data-name="custom_icon_copy"]').length>0 ) {
+        // $('th[data-name="custom_icon"]').each(function(){
+        //     var iconLink = '<a href="#" class="customIconBtn">Click here to select icons</a>';
+        //     $(this).append(iconLink);
+        // });
+
+        $('tbody td[data-name="custom_icon_copy"]').each(function(k){
+            var ctr = k+1;
+            var input = $(this).find(".acf-input-wrap input");
+            var id = input.attr("id");
+            var icon = input.val();
+            var label = (icon) ? 'Edit' : 'Add Icon';
+            var btn = '<span class="cusIcon"><i class="'+icon+'"></i></span><a href="#" data-icon="'+icon+'" class="iconOptBtn">'+label+'</a>';
+            $(btn).insertAfter(input);
+        });
+        
+        $(document).on("click",".customIconBtn",function(e){
+            e.preventDefault();
+            $("#customIconsContainer").show();
+        });
+        $(document).on("click","#closeIconList",function(e){
+            e.preventDefault();
+            $("#customIconsContainer").hide();
+            $("#customIconsContainer").attr("data-assign","");
+            $("#customIconsContainer .iconBox").removeClass('selected');
+        });
+        $(document).on("click",".iconBox .w",function(e){
+            e.preventDefault();
+            var icon = $(this).attr("data-icon");
+            var inputId = $("#customIconsContainer").attr("data-assign");
+            var parent = $('td[data-name="custom_icon_copy"]').find("input#"+inputId).parent();
+            $(('td[data-name="custom_icon_copy"]')).find("input#"+inputId).val(icon);
+            parent.find("span.cusIcon i").removeAttr("class").addClass(icon);
+            parent.find(".iconOptBtn").attr("data-icon",icon);
+            parent.find(".iconOptBtn").text('Edit');
+            $("#closeIconList").trigger("click");
+        });
+
+        $(document).on("click",".iconOptBtn",function(e){
+            e.preventDefault();
+            var icon = $(this).attr("data-icon");
+            var parent = $(this).parents('td[data-name="custom_icon_copy"]');
+            var inputId = parent.find(".acf-input-wrap input").attr("id");
+            $("#customIconsContainer").show();
+            $("#customIconsContainer").attr("data-assign",inputId);
+            $('.iconBox .w[data-icon="'+icon+'"]').parent().addClass("selected");
+        });
+
+        function copyToClipboard(str) {
+          var $temp = $("<input>");
+          $("body").append($temp);
+          $temp.val(str).select();
+          document.execCommand("copy");
+          $temp.remove();
+        }
+    }
+
+
+
+
+
+    
+
     /* Flexible Content that has a 'title' field. Title appears on the collapse handle */
     if( $('body').hasClass('post-type-race') ) {
         if( $('.acf-flexible-content [data-layout="text_and_image"] .acf-field-text[data-name="title"]').length > 0 ) {

@@ -3286,7 +3286,8 @@ body.subpage.single {
 	}
 }
 
-#section-checkin.section-content {
+#section-checkin.section-content,
+#points-of-interest-inside.section-content {
 	margin-bottom: 40px;
 	.flexwrap {
 		padding: 8px;
@@ -13349,4 +13350,7 @@ ul.items {
 	&.show {
 		width: 100% !important;
 	}
+}
+.sect-div-pad {
+	padding: 30px 0;
 }

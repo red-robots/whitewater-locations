@@ -4,10 +4,27 @@ $rectangle = THEMEURI . "images/rectangle.png";
 $square = THEMEURI . "images/square.png";
 $checkin_images = array();
 $checkin_rows = array();
+$points_title = get_field("points_section_title");
+$section4 = ($points_title) ? $points_title : 'Points of Interest';
 
-if( have_rows('points_of_interest') ): while( have_rows('points_of_interest') ): the_row();
-	$s4_title = get_sub_field("whereto_section_title");
-	$section4 = ($s4_title) ? $s4_title : 'Check-In';
+if( have_rows('points_of_interest') ): ?>
+<section id="points-of-interest" data-section="<?php echo $section4 ?>" class="section-content<?php echo $checkin_classes;?>">
+	<div class="wrapper">
+		<div class="shead-icon text-center">
+			<div class="icon"><span class="ci-video"></span></div>
+			<h2 class="stitle"><?php echo $section4; ?></h2>
+			<?php if ($stories_text) { ?>
+			<div class="subtext">
+				<?php echo $stories_text ?>
+				<?php if( current_user_can( 'administrator' ) ){ ?>
+				<div class="edit-entry"><a href="<?php echo $stories_edit_link ?>" style="text-decoration:underline;">Edit Text</a></div>
+				<?php } ?>
+			</div>	
+			<?php } ?>
+		</div>
+	</div>
+	<?php while( have_rows('points_of_interest') ): the_row();
+	
 	if( have_rows('box_content') ) : 
 		$ctr=0; 
 		while( have_rows('box_content') ) : the_row(); 
@@ -30,8 +47,9 @@ if( have_rows('points_of_interest') ): while( have_rows('points_of_interest') ):
 			$checkin_classes = ' has-two-images';
 		}
 
+
 ?>
-<section id="section-checkin" data-section="<?php echo $section4 ?>" class="section-content<?php echo $checkin_classes;?>">
+<section id="points-of-interest-inside"  class="section-content<?php echo $checkin_classes;?>">
 	<div class="wrapper-full">
 		<div class="flexwrap">
 			<?php  $i=1; 

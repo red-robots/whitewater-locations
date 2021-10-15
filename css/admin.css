@@ -264,33 +264,39 @@ body.wp-admin.post-type-activity_schedule #poststuff #titlewrap {
   position: relative;
   left: 5px;
 }
-tbody td[data-name="custom_icon"] .acf-input-wrap input {
+tbody td[data-name="custom_icon"] .acf-input-wrap input,
+tbody td[data-name="custom_icon_copy"] .acf-input-wrap input {
   display: none;
 }
-tbody td[data-name="custom_icon"] .cusIcon {
+tbody td[data-name="custom_icon"] .cusIcon,
+tbody td[data-name="custom_icon_copy"] .cusIcon {
   font-size: 25px;
   line-height: 1;
   position: relative;
 }
-tbody td[data-name="custom_icon"] .iconOptBtn {
+tbody td[data-name="custom_icon"] .iconOptBtn,
+tbody td[data-name="custom_icon_copy"] .iconOptBtn {
   display: inline-block;
   position: relative;
   margin-left: 15px;
   top: -8px;
 }
 
-div.acf-field[data-name="custom_icon"] .acf-input-wrap input {
+div.acf-field[data-name="custom_icon"] .acf-input-wrap input,
+div.acf-field[data-name="custom_icon_copy"] .acf-input-wrap input {
   visibility: hidden;
   position: absolute;
   left: -99em;
   z-index: -2;
 }
-div.acf-field[data-name="custom_icon"] span.cusIcon {
+div.acf-field[data-name="custom_icon"] span.cusIcon,
+div.acf-field[data-name="custom_icon_copy"] span.cusIcon {
   font-size: 30px;
   line-height: 1;
   margin-right: 15px;
 }
-div.acf-field[data-name="custom_icon"] .iconOptBtn {
+div.acf-field[data-name="custom_icon"] .iconOptBtn,
+div.acf-field[data-name="custom_icon_copy"] .iconOptBtn {
   position: relative;
   top: -8px;
 }

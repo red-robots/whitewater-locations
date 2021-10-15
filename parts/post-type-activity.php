@@ -465,7 +465,7 @@ while ( have_posts() ) : the_post();
 	$checkin_rows = array();
 	$s4_title = get_field("whereto_section_title");
 	$section4 = ($s4_title) ? $s4_title : 'Check-In';
-	if( have_rows('checkin_box') ) { 
+	if( have_rows('checkin_box') ) { echo 'werjwoiefowe';
 		$ctr=0; while ( have_rows('checkin_box') ) : the_row(); 
 			$has_text = get_sub_field('has_text'); 
 			$has_text = ($has_text=='yes') ? true : false;
@@ -582,7 +582,7 @@ while ( have_posts() ) : the_post();
 	<?php } ?>
 
 	<?php 
-	get_template_part('parts/points-of-interest'); 
+	include(locate_template('parts/points-of-interest.php')); 
 	//get_template_part('parts/points');
 	?>
 	
@@ -618,6 +618,8 @@ while ( have_posts() ) : the_post();
 		</div>
 	</section>
 	<?php } ?>
+
+	<?php include(locate_template('parts/extra-cards.php')); ?>
 
 	<?php /* FAQ */ ?>
 	<?php 
