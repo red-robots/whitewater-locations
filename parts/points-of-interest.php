@@ -5,13 +5,20 @@ $square = THEMEURI . "images/square.png";
 $checkin_images = array();
 $checkin_rows = array();
 $points_title = get_field("points_section_title");
+$sIcon = get_field("points_section_icon");
+// echo '<pre>';
+// print_r($sIcon);
+// echo '</pre>';
 $section4 = ($points_title) ? $points_title : 'Points of Interest';
 
 if( have_rows('points_of_interest') ): ?>
 <section id="points-of-interest" data-section="<?php echo $section4 ?>" class="section-content<?php echo $checkin_classes;?>">
 	<div class="wrapper">
-		<div class="shead-icon text-center">
-			<div class="icon"><span class="ci-video"></span></div>
+		<div class="shead-icon text-center svg-sec-icon">
+			<div class="icon">
+				<!-- <span class="ci-video"></span> -->
+					<img src="<?php echo $sIcon['url']; ?>">
+				</div>
 			<h2 class="stitle"><?php echo $section4; ?></h2>
 			<?php if ($stories_text) { ?>
 			<div class="subtext">

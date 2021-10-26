@@ -5,8 +5,10 @@ $x_icon = get_field("custom_icon_copy");
 if ( have_rows('extra_cards') ) : ?>
 <section  id="section-<?php echo $sx_sect_title; ?>" data-section="<?php echo $x_sect_title ?>" class="flex-container store-listings full nomtop">
 	<div class="wrapper sect-div-pad">
-		<div class="shead-icon text-center">
-			<div class="icon"><span class="ci-video"></span></div>
+		<div class="shead-icon text-center svg-sec-icon">
+			<div class="icon">
+				<img src="<?php echo $x_icon['url']; ?>">
+			</div>
 			<h2 class="stitle"><?php echo $x_sect_title; ?></h2>
 			<?php if ($stories_text) { ?>
 			<div class="subtext">
