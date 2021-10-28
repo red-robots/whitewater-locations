@@ -16,8 +16,8 @@ $args = array(
 	'facetwp' 				 	=> true,
 	'meta_key' 					=> 'start_date',
 	'orderby'  					=> array(
-		'meta_value_num' 	=> 'ASC',
-		'post_date'      	=> 'ASC',
+		'meta_value_num' 	=> 'DESC',
+		'post_date'      	=> 'DESC',
 	),
 );
 
