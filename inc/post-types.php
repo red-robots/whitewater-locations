@@ -21,7 +21,15 @@ function js_custom_init() {
             'menu_name' => 'Accommodations',
             'plural'    => 'Accommodations',
             'single'    => 'Accommodation',
-            'menu_icon' => 'dashicons-sos',
+            'menu_icon' => 'dashicons-admin-home',
+            'supports'  => array('title','editor')
+        ),
+        array(
+            'post_type' => 'public_assets',
+            'menu_name' => 'Public Assets',
+            'plural'    => 'Public Assets',
+            'single'    => 'Public Asset',
+            'menu_icon' => 'dashicons-admin-site',
             'supports'  => array('title','editor')
         ),
         // array(

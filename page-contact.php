@@ -26,6 +26,9 @@ get_header(); ?>
 			$contact_form = get_field("contact_form");
 			$contactClass = ($contact_info && $contact_map) ? 'half':'full';
 			$contactWrap = ( ($contact_info && $contact_map) && $contact_form ) ? 'half':'full';
+			// echo '<pre>';
+			// print_r($contact_map);
+			// echo '</pre>';
 
 			//$info_arrs = array('company','address','phone','email');
 			if($contact_info || $contact_map || $contact_form) { ?>
