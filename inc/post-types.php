@@ -17,85 +17,93 @@ function js_custom_init() {
             'supports'  => array('title','editor')
         ),
         array(
-            'post_type' => 'activity_schedule',
-            'menu_name' => 'Activity Schedule',
-            'plural'    => 'Activity Schedules',
-            'single'    => 'Activity Schedule',
-            'menu_icon' => 'dashicons-calendar-alt',
-            'supports'  => array('title')
-        ),
-        array(
-            'post_type' => 'pass',
-            'menu_name' => 'Passes',
-            'plural'    => 'Passes',
-            'single'    => 'Pass',
-            'menu_icon' => 'dashicons-tickets-alt',
+            'post_type' => 'accomodation',
+            'menu_name' => 'Accomodations',
+            'plural'    => 'Accomodations',
+            'single'    => 'Accomodation',
+            'menu_icon' => 'dashicons-sos',
             'supports'  => array('title','editor')
         ),
-        array(
-            'post_type' => 'race',
-            'menu_name' => 'Race Series',
-            'plural'    => 'Races',
-            'single'    => 'Race',
-            'menu_icon' => 'dashicons-location-alt',
-            'supports'  => array('title','editor')
-        ),
-        array(
-            'post_type' => 'film-series',
-            'menu_name' => 'Film Series',
-            'plural'    => 'Film Series',
-            'single'    => 'Film Series ',
-            'menu_icon' => 'dashicons-video-alt2',
-            'supports'  => array('title','editor')
-        ),
-        array(
-            'post_type' => 'music',
-            'menu_name' => 'River Jam Bands',
-            'plural'    => 'River Jam Bands',
-            'single'    => 'River Jam Band ',
-            'menu_icon' => 'dashicons-format-audio',
-            'supports'  => array('title','editor')
-        ),
-        array(
-          'post_type' => 'jam-programs',
-          'menu_name' => 'River Jam Programs',
-          'plural'    => 'River Jam Programs',
-          'single'    => 'River Jam Program',
-          'menu_icon' => 'dashicons-format-audio',
-          'supports'  => array('title','editor')
-        ),
-        array(
-            'post_type' => 'festival',
-            'menu_name' => 'Festival',
-            'plural'    => 'Festival',
-            'single'    => 'Festival ',
-            'menu_icon' => 'dashicons-megaphone',
-            'supports'  => array('title','editor')
-        ),
-        array(
-            'post_type' => 'festival_activity',
-            'menu_name' => 'Festival Activities',
-            'plural'    => 'Festival Activities',
-            'single'    => 'Festival Activity',
-            'menu_icon' => 'dashicons-megaphone',
-            'supports'  => array('title','editor','excerpt')
-        ),
-        array(
-            'post_type' => 'camp',
-            'menu_name' => 'Camps',
-            'plural'    => 'Camps',
-            'single'    => 'Camp',
-            'menu_icon' => 'dashicons-location',
-            'supports'  => array('title','editor')
-        ),
-        array(
-            'post_type' => 'fieldtrips',
-            'menu_name' => 'Field Trips',
-            'plural'    => 'Field Trips',
-            'single'    => 'Field Trip',
-            'menu_icon' => 'dashicons-car',
-            'supports'  => array('title','editor')
-        ),
+        // array(
+        //     'post_type' => 'activity_schedule',
+        //     'menu_name' => 'Activity Schedule',
+        //     'plural'    => 'Activity Schedules',
+        //     'single'    => 'Activity Schedule',
+        //     'menu_icon' => 'dashicons-calendar-alt',
+        //     'supports'  => array('title')
+        // ),
+        // array(
+        //     'post_type' => 'pass',
+        //     'menu_name' => 'Passes',
+        //     'plural'    => 'Passes',
+        //     'single'    => 'Pass',
+        //     'menu_icon' => 'dashicons-tickets-alt',
+        //     'supports'  => array('title','editor')
+        // ),
+        // array(
+        //     'post_type' => 'race',
+        //     'menu_name' => 'Race Series',
+        //     'plural'    => 'Races',
+        //     'single'    => 'Race',
+        //     'menu_icon' => 'dashicons-location-alt',
+        //     'supports'  => array('title','editor')
+        // ),
+        // array(
+        //     'post_type' => 'film-series',
+        //     'menu_name' => 'Film Series',
+        //     'plural'    => 'Film Series',
+        //     'single'    => 'Film Series ',
+        //     'menu_icon' => 'dashicons-video-alt2',
+        //     'supports'  => array('title','editor')
+        // ),
+        // array(
+        //     'post_type' => 'music',
+        //     'menu_name' => 'River Jam Bands',
+        //     'plural'    => 'River Jam Bands',
+        //     'single'    => 'River Jam Band ',
+        //     'menu_icon' => 'dashicons-format-audio',
+        //     'supports'  => array('title','editor')
+        // ),
+        // array(
+        //   'post_type' => 'jam-programs',
+        //   'menu_name' => 'River Jam Programs',
+        //   'plural'    => 'River Jam Programs',
+        //   'single'    => 'River Jam Program',
+        //   'menu_icon' => 'dashicons-format-audio',
+        //   'supports'  => array('title','editor')
+        // ),
+        // array(
+        //     'post_type' => 'festival',
+        //     'menu_name' => 'Festival',
+        //     'plural'    => 'Festival',
+        //     'single'    => 'Festival ',
+        //     'menu_icon' => 'dashicons-megaphone',
+        //     'supports'  => array('title','editor')
+        // ),
+        // array(
+        //     'post_type' => 'festival_activity',
+        //     'menu_name' => 'Festival Activities',
+        //     'plural'    => 'Festival Activities',
+        //     'single'    => 'Festival Activity',
+        //     'menu_icon' => 'dashicons-megaphone',
+        //     'supports'  => array('title','editor','excerpt')
+        // ),
+        // array(
+        //     'post_type' => 'camp',
+        //     'menu_name' => 'Camps',
+        //     'plural'    => 'Camps',
+        //     'single'    => 'Camp',
+        //     'menu_icon' => 'dashicons-location',
+        //     'supports'  => array('title','editor')
+        // ),
+        // array(
+        //     'post_type' => 'fieldtrips',
+        //     'menu_name' => 'Field Trips',
+        //     'plural'    => 'Field Trips',
+        //     'single'    => 'Field Trip',
+        //     'menu_icon' => 'dashicons-car',
+        //     'supports'  => array('title','editor')
+        // ),
         array(
             'post_type' => 'brewery',
             'menu_name' => 'Breweries',
@@ -104,14 +112,14 @@ function js_custom_init() {
             'menu_icon' => 'dashicons-beer',
             'supports'  => array('title','editor')
         ),
-        array(
-            'post_type' => 'dining',
-            'menu_name' => 'Adventure Dining',
-            'plural'    => 'Adventure Dining',
-            'single'    => 'Adventure Dining',
-            'menu_icon' => 'dashicons-coffee',
-            'supports'  => array('title','editor')
-        ),
+        // array(
+        //     'post_type' => 'dining',
+        //     'menu_name' => 'Adventure Dining',
+        //     'plural'    => 'Adventure Dining',
+        //     'single'    => 'Adventure Dining',
+        //     'menu_icon' => 'dashicons-coffee',
+        //     'supports'  => array('title','editor')
+        // ),
         array(
             'post_type' => 'event-space',
             'menu_name' => 'Event Spaces',
@@ -120,14 +128,14 @@ function js_custom_init() {
             'menu_icon' => 'dashicons-buddicons-community',
             'supports'  => array('title','editor')
         ),
-        array(
-            'post_type' => 'stores',
-            'menu_name' => 'Outfitters',
-            'plural'    => 'Outfitters',
-            'single'    => 'Outfitter',
-            'menu_icon' => 'dashicons-store',
-            'supports'  => array('title','editor')
-        ),
+        // array(
+        //     'post_type' => 'stores',
+        //     'menu_name' => 'Outfitters',
+        //     'plural'    => 'Outfitters',
+        //     'single'    => 'Outfitter',
+        //     'menu_icon' => 'dashicons-store',
+        //     'supports'  => array('title','editor')
+        // ),
         array(
             'post_type' => 'instructions',
             'menu_name' => 'Instructions',
@@ -160,14 +168,14 @@ function js_custom_init() {
             'menu_icon' => 'dashicons-groups',
             'supports'  => array('title','editor')
         ),
-        array(
-            'post_type' => 'employeestories',
-            'menu_name' => 'Employee Stories',
-            'plural'    => 'Employee Stories',
-            'single'    => 'Employee Story',
-            'menu_icon' => 'dashicons-format-status',
-            'supports'  => array('title','editor')
-        ),
+        // array(
+        //     'post_type' => 'employeestories',
+        //     'menu_name' => 'Employee Stories',
+        //     'plural'    => 'Employee Stories',
+        //     'single'    => 'Employee Story',
+        //     'menu_icon' => 'dashicons-format-status',
+        //     'supports'  => array('title','editor')
+        // ),
         array(
             'post_type' => 'route',
             'menu_name' => 'Routes',
