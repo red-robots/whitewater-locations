@@ -17,10 +17,10 @@ function js_custom_init() {
             'supports'  => array('title','editor')
         ),
         array(
-            'post_type' => 'accomodation',
-            'menu_name' => 'Accomodations',
-            'plural'    => 'Accomodations',
-            'single'    => 'Accomodation',
+            'post_type' => 'accommodation',
+            'menu_name' => 'Accommodations',
+            'plural'    => 'Accommodations',
+            'single'    => 'Accommodation',
             'menu_icon' => 'dashicons-sos',
             'supports'  => array('title','editor')
         ),
