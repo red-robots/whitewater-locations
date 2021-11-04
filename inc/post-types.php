@@ -33,10 +33,10 @@ function js_custom_init() {
             'supports'  => array('title','editor')
         ),
         array(
-            'post_type' => 'public_asset_activity',
-            'menu_name' => 'Public Assets Act',
-            'plural'    => 'Public Assets',
-            'single'    => 'Public Asset',
+            'post_type' => 'public_activity',
+            'menu_name' => 'Public Activities',
+            'plural'    => 'Public Activities',
+            'single'    => 'Public Activity',
             'menu_icon' => 'dashicons-admin-site',
             'supports'  => array('title','editor')
         ),
