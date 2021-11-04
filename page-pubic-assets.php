@@ -18,7 +18,7 @@ get_header();
 			</div>
 		<?php endwhile;  ?>
 
-		<?php get_template_part("parts/festival-list"); ?>
+		<?php get_template_part("parts/public-asset-list"); ?>
 
 </div><!-- #primary -->
 <script type="text/javascript">
