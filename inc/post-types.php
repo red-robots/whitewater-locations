@@ -32,6 +32,14 @@ function js_custom_init() {
             'menu_icon' => 'dashicons-admin-site',
             'supports'  => array('title','editor')
         ),
+        array(
+            'post_type' => 'public_asset_activity',
+            'menu_name' => 'Public Assets Act',
+            'plural'    => 'Public Assets',
+            'single'    => 'Public Asset',
+            'menu_icon' => 'dashicons-admin-site',
+            'supports'  => array('title','editor')
+        ),
         // array(
         //     'post_type' => 'activity_schedule',
         //     'menu_name' => 'Activity Schedule',
