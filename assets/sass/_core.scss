@@ -125,7 +125,8 @@ a {
 /* Header */
 .site-header {
 	position: fixed;
-	top: 30px;
+	// top: 30px;
+	top: 0;
 	left: 0;
 	width: 100%;
 	z-index: 200;
@@ -3289,7 +3290,7 @@ body.subpage.single {
 	margin-top: 40px;
 }
 #points-of-interest-inside {
-	
+
 }
 #section-checkin.section-content,
 #points-of-interest-inside.section-content {

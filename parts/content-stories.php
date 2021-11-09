@@ -78,7 +78,7 @@ $paged = ( get_query_var( 'pg' ) ) ? absint( get_query_var( 'pg' ) ) : 1;
 // 	) );
 
 // if ( $blogs->have_posts() ) {  $totalFound = $blogs->found_posts; 
-$response = wp_remote_get( 'https://whitewater.org/wp-json/wp/v2/posts?per_page=10&_embed' );
+$response = wp_remote_get( 'https://whitewater.org/wp-json/wp/v2/posts?per_page=10' );
 // echo '<pre style="background-color: #fff;">';
 // print_r($response);
 // echo '<?pre>';
@@ -133,11 +133,11 @@ $response = wp_remote_get( 'https://whitewater.org/wp-json/wp/v2/posts?per_page=
 
 					// while ( $blogs->have_posts() ) : $blogs->the_post();
 					foreach ($body as $post) :
-					$thumbId = get_post_thumbnail_id(); 
+					// $thumbId = get_post_thumbnail_id(); 
 					// $featImg = wp_get_attachment_image_src($thumbId,'large');
 					$featImg = $post['fimg_url'];
 					// $featThumb = wp_get_attachment_image_src($thumbId,'thumbnail');
-					$featImg = $post['fimg_url'];
+					$featThumb = $post['acf']['image']['url'];
 
 					$content = $post['content'];
 					$title = $post['title']['rendered'];
@@ -145,6 +145,7 @@ $response = wp_remote_get( 'https://whitewater.org/wp-json/wp/v2/posts?per_page=
 					$pagelink = $post['link'];
 					$divclass .= ($i % 2) ? ' odd':' even';
 					$divclass .= ($i==1) ? ' first':'';
+					$catId = $post['category']['0'];
 					// echo '<pre style="background-color: #fff;">';
 					// print_r($post);
 					// echo '<?pre>';
@@ -152,7 +153,7 @@ $response = wp_remote_get( 'https://whitewater.org/wp-json/wp/v2/posts?per_page=
 					?>
 				<?php
 				$sec =  $sec + .1;
-				$i++; //endwhile; wp_reset_postdata(); ?>
+				$i++; endforeach; //wp_reset_postdata(); ?>
 
 			</div>
 		</div>
@@ -190,7 +191,7 @@ $response = wp_remote_get( 'https://whitewater.org/wp-json/wp/v2/posts?per_page=
 </div>
 
 <?php 
-endforeach; 
+ 
 endif; 
 endif; 
 ?>

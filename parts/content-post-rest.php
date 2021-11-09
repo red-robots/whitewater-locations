@@ -1,18 +1,21 @@
 <?php 
-$catObj = get_the_terms( get_the_ID(), 'category' );
+// $catObj = get_the_terms( get_the_ID(), 'category' );
 $catNameArray = array();
 $filmCat = '';
 
-foreach ( $catObj as $slug ) {
-$catNameArray[] = $slug->slug;
-}
+// foreach ( $catObj as $slug ) {
+// 	$catNameArray[] = $slug->slug;
+// }
 // echo '<pre>';
 // print_r($catObj);
 // echo '</pre>';
-if( in_array('films', $catNameArray) ) {
-$filmCat = 'yes';
-}
- ?>
+// if( in_array('films', $catNameArray) ) {
+// 	$filmCat = 'yes';
+// }
+if( $catId == '23' ) {
+	$filmCat = 'yes';
+ } ?>
+
 <article id="post-id-<?php the_ID(); ?>" class="entry <?php echo $divclass ?>">
 				<div class="inner-wrap">
 
@@ -37,7 +40,7 @@ $filmCat = 'yes';
 					<div class="textcol">
 						<div class="inside fadeIn wow" data-wow-delay="<?php echo $sec;?>s">
 							<div class="wrap">
-								<h2 class="title"><?php echo $title; ?></h2>
+								<h2 class="title"><?php echo $title . ' ' . $i; ?></h2>
 								<?php $postdate = get_the_date('M j, Y'); ?>
 								<div class="store-postdate"><span><?php echo $postdate ?></span></div>
 

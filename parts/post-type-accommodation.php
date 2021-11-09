@@ -2,7 +2,7 @@
 $postid = get_the_ID();
 while ( have_posts() ) : the_post(); 
 	$top_notification = get_field("top_notification");
-	$main_description = get_field("activity_descr");
+	$main_description = get_field("accommodation_descr");
 	$taxonomy = 'pass_type';
 	$categories = get_the_terms($postid,$taxonomy);
 	$catSlugs = array();
