@@ -47,11 +47,11 @@ if( have_rows('points_of_interest') ): ?>
 				<div class="col-left">
 					<div class="flex-content largebox has-text">
 						<div class="inside with-pad">
-							<?php echo $lDesc; ?>
+							<div><?php echo $lDesc; ?></div>
 						</div>
 					</div>
 					<div class="flex-content largebox has-text">
-						<div class="inside with-pad">
+						<div class="inside with-pad poi-iframe-map">
 							<?php echo $map; ?>
 						</div>
 					</div>
