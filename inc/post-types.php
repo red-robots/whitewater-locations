@@ -30,16 +30,16 @@ function js_custom_init() {
             'plural'    => 'Public Assets',
             'single'    => 'Public Asset',
             'menu_icon' => 'dashicons-admin-site',
-            'supports'  => array('title','editor')
+            'supports'  => array('title','editor', 'excerpt')
         ),
-        array(
-            'post_type' => 'public_activity',
-            'menu_name' => 'Public Activities',
-            'plural'    => 'Public Activities',
-            'single'    => 'Public Activity',
-            'menu_icon' => 'dashicons-admin-site',
-            'supports'  => array('title','editor')
-        ),
+        // array(
+        //     'post_type' => 'public_activity',
+        //     'menu_name' => 'Public Activities',
+        //     'plural'    => 'Public Activities',
+        //     'single'    => 'Public Activity',
+        //     'menu_icon' => 'dashicons-admin-site',
+        //     'supports'  => array('title','editor')
+        // ),
         // array(
         //     'post_type' => 'activity_schedule',
         //     'menu_name' => 'Activity Schedule',
