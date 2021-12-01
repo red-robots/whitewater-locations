@@ -35,6 +35,26 @@ while ( have_posts() ) : the_post();
 
 
 	<?php 
+		$purchase_link = get_field("purchase_link");
+		$reservation = get_field("reservation_data");
+
+		if ($purchase_link) { 
+			$btn_title = $purchase_link['title'];
+			$btn_link = $purchase_link['url'];
+			$btn_target = $purchase_link['target'];
+			$target = ($btn_target) ? ' target="'.$btn_target.'"':'';
+	?>
+			<section class="accomm-purchase">
+				<div class="button text-center">
+					<a href="<?php echo $btn_link ?>" class="btn-border"<?php echo $target ?>>
+						<span><?php echo $btn_title ?></span>
+					</a>
+				</div>	
+			</section>
+	<?php } ?>
+
+
+	<?php 
 	/* INTRO */
 	$galleries = '';
 	$galleryData = get_field("gallery_content");
@@ -299,10 +319,6 @@ while ( have_posts() ) : the_post();
 			</div>	
 			<?php } ?>
 
-			<?php 
-			$purchase_link = get_field("purchase_link");
-			$reservation = get_field("reservation_data");
-			?>
 			<?php if ($categories || $reservation) { ?>
 			<div class="optcol categories passOptions">
 				<?php if ($categories) { ?>
@@ -618,6 +634,8 @@ while ( have_posts() ) : the_post();
 
 	<?php include(locate_template('parts/extra-cards.php')); ?>
 
+	<?php include(locate_template('parts/public-assets.php')); ?>
+
 	<?php /* FAQ */ ?>
 	<?php 
 		$customFAQTitle = get_field("faq_section_title");
@@ -632,3 +650,133 @@ while ( have_posts() ) : the_post();
 	/* FAQS JAVASCRIPT */ 
 	include( locate_template('inc/faqs-script.php') ); 
 	?>
+
+	<div id="activityModal" class="modal customModal fade">
+		<div class="modal-dialog modal-lg" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div id="modalBodyText" class="modal-body">
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<script type="text/javascript">
+jQuery(document).ready(function($){
+	// $('.loop').owlCarousel({
+ //    center: true,
+ //    items:2,
+ //    nav: true,
+ //    loop:true,
+ //    margin:15,
+ //    autoplay:true,
+ //    autoplayTimeout:3000,
+ //    autoplayHoverPause:true,
+ //    responsive:{
+ //      600:{
+ //       	items:2
+ //      },
+ //      400:{
+ //       	items:1
+ //      }
+ //    }
+	// });
+
+	// /* Custom Select Style */
+	// $("select.customSelect").select2({
+ //    placeholder: "ALL",
+ //    allowClear: false
+	// });
+
+	// $("#selectByProgram").on("change",function(){
+	// 	//$("#filterForm").trigger("submit");
+	// 	var selected = $(this).val();
+	// 	var newURL = currentURL;
+		
+	// 	if(selected=='-1') {
+	// 		$(".customSelectWrap").addClass("selected-default");
+	// 		window.history.replaceState("",document.title,currentURL);
+	// 	} else {
+	// 		$(".customSelectWrap").removeClass("selected-default");
+	// 		newURL = currentURL + '?programming=' + selected;
+	// 		window.history.replaceState("",document.title,newURL);
+	// 	}
+
+	// 	$("#loaderDiv").show();
+
+	// 	$("#filterResults").load(newURL + " #tabSchedules",function(){
+	// 		$("#filterResults #tabSchedules").addClass("animated fadeIn");
+	// 		setTimeout(function(){
+	// 			$("#loaderDiv").hide();
+	// 		},400);
+	// 	});
+
+	// });
+
+
+	// $(document).on("click","#tabOptions a",function(e){
+	// 	e.preventDefault();
+	// 	$("#tabOptions li").removeClass('active');
+	// 	$(this).parent().addClass('active');
+	// 	$(".schedules-list").removeClass('active');
+	// 	var tabContent = $(this).attr("data-tab");
+	// 	$(tabContent).addClass('active');
+	// });
+
+	$(document).on("click",".popdata",function(e){
+		e.preventDefault();
+		var pageURL = $(this).attr('data-url');
+		var actionName = $(this).attr('data-action');
+		var pageID = $(this).attr('data-id');
+
+		$.ajax({
+			url : frontajax.ajaxurl,
+			type : 'post',
+			dataType : "json",
+			data : {
+				'action' : actionName,
+				'ID' : pageID
+			},
+			beforeSend:function(){
+				$("#loaderDiv").show();
+
+			},
+			success:function( obj ) {
+				
+				var content = '';
+				if(obj) {
+					content += '<div class="modaltitleDiv text-center"><h5 class="modal-title">'+obj.post_title+'</h5></div>';
+					if(obj.featured_image) {
+						var img = obj.featured_image;
+						content += '<div class="modalImage"><img src="'+img.url+'" alt="'+img.title+'p" class="feat-image"></div>';
+					}
+					content += '<div class="modalText"></div>';
+
+					if(content) {
+						$("#modalBodyText").html(content);
+					}
+
+					$.get(obj.postlink,function(data){
+						var textcontent = '<div class="text">'+data+'</div></div>';
+						$("#modalBodyText .modalText").html(textcontent);
+						$("#activityModal").modal("show");
+						$("#loaderDiv").hide();
+					});
+					
+				}
+				
+			},
+			error:function() {
+				// alert('error');
+				$("#loaderDiv").hide();
+			}
+		});
+
+	});
+
+});
+</script>

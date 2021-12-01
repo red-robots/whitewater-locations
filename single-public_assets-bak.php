@@ -253,7 +253,7 @@ $is_filtered = ( isset($_GET['programming']) && $_GET['programming'] ) ? $_GET['
 						/* Will not display any data. This is required for the FacetWP dropdown to work. */
 						$args = array(
 							'posts_per_page'=> 1,
-							'post_type'			=> 'festival_activity',
+							'post_type'			=> 'public_activity',
 							'orderby' 			=> 'ID',
 						  	'order'    			=> 'DESC',
 							'post_status'		=> 'publish',
@@ -553,7 +553,6 @@ jQuery(document).ready(function($){
 		var pageURL = $(this).attr('data-url');
 		var actionName = $(this).attr('data-action');
 		var pageID = $(this).attr('data-id');
-		// alert('beforeSend');
 
 		$.ajax({
 			url : frontajax.ajaxurl,
@@ -565,7 +564,6 @@ jQuery(document).ready(function($){
 			},
 			beforeSend:function(){
 				$("#loaderDiv").show();
-
 			},
 			success:function( obj ) {
 			

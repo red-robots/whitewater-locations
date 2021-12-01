@@ -3437,6 +3437,10 @@ body.page-template-page-race .post-type-entries .flex-inner.countItems1,body.pag
 .modal.customModal#additionEventInfo .modalText h3{font-size:18px}
 .modal.customModal#additionEventInfo .modalText h4{font-size:16px}
 .modal.customModal#additionEventInfo .modalText h5{font-size:14px}
+section.accomm-purchase{width:100%;float:left;margin:20px auto 60px auto;text-align:center}
+section.accomm-purchase .button{display:inline-block;color:#fff;background-color:#ba0c2f}
+section.accomm-purchase .button a{color:#fff;background-color:#ba0c2f;-webkit-transform:scale(1);transform:scale(1);padding:20px 30px;-webkit-transition:all ease .2s;transition:all ease .2s;text-transform:uppercase;font-size:18px;border:0}
+section.accomm-purchase .button a:hover{-webkit-transform:scale(1.05);transform:scale(1.05);text-decoration:none}
 .accomodations{width:100%;float:left;margin-top:30px;margin-bottom:30px}
 .accomodations.nopadtop{margin-top:-20px}
 .accomodations .info{width:100%;float:left;border-top:2px solid #f2f2f2;padding-top:15px;padding-bottom:15px}

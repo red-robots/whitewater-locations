@@ -12589,7 +12589,32 @@ body.page-template-page-race {
 		}
 	}
 }
+section.accomm-purchase {
+	width: 100%;
+	float: left;
+	margin: 20px auto 60px auto;
+	text-align: center;
+	.button {
+		display: inline-block;
+		color: #fff;
+		background-color: $secondary;
+		a {
+			color: #fff;
+			background-color: $secondary;
+			transform: scale(1);
+			padding: 20px 30px ;
+			transition: all ease .2s;
+			text-transform: uppercase;
+			font-size: 18px;
+			border: 0;
 
+			&:hover {
+				transform: scale(1.05);
+				text-decoration: none;
+			}
+		}
+	}
+}
 .accomodations {
 	width: 100%;
 	float: left;
