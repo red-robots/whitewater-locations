@@ -1,14 +1,17 @@
 <?php /* ACTIVITIES */ ?>
 <?php if( $bottom_activities = get_field("public_assets") ) { 
 	$countActivities = count($bottom_activities);
+	$sTitle = get_field('popup_section_title');
 ?>
 <section id="section-activities" data-section="Programming" class="section-content camp-activities countItems<?php echo $countActivities?>">
+	<?php if( $sTitle ){ ?>
 	<div class="wrapper titlediv">
 		<div class="shead-icon text-center">
 			<div class="icon"><span class="ci-task"></span></div>
-			<h2 class="stitle">Programming</h2>
+			<h2 class="stitle"><?php echo $sTitle; ?></h2>
 		</div>
 	</div>
+	<?php } ?>
 
 	<div class="entryList flexwrap">
 		<?php $b=1; foreach ($bottom_activities as $ba) {
