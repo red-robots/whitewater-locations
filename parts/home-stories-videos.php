@@ -43,9 +43,9 @@ $blank_image = THEMEURI . "images/rectangle.png";
 	// $posts = new WP_Query($args);
 	// if ( $posts->have_posts() ) { 
 	// $totalpost = $posts->found_posts;  
+	
 
-
-	$response = wp_remote_get( 'https://whitewater.org/wp-json/wp/v2/posts?per_page=90' );
+	$response = wp_remote_get( 'https://whitewater.org/wp-json/wp/v2/posts?per_page=99' );
 
 	if( is_array($response) ) :
         $code = wp_remote_retrieve_response_code( $response );
@@ -62,9 +62,22 @@ $blank_image = THEMEURI . "images/rectangle.png";
 
 					// while ( $blogs->have_posts() ) : $blogs->the_post();
 				foreach ($body as $post) :
+					$lPostStory = array();
+					// echo '<pre style="background-color: #fff;">';
+					// print_r($post);
+					// echo '</pre>';
+
+					$indShowOnHome = $post['acf']['wwl_show_on_homepage'];
 					$showOnHome = $post['acf']['show_on_homepage'];
+
+					foreach( $indShowOnHome as $lPost ) {
+						$lPostStory[] = $lPost;
+					}
+					// echo '<pre style="background-color: #fff;">';
+					// print_r($lPostStory);
+					// echo '</pre>';
 					// echo '<!-- show on homepage '.$q.'-->';
-					if( $showOnHome == 'yes' ) { 
+					if( in_array('pisgah', $lPostStory) ) { 
 						$q++;
 					echo '<!-- counter '.$q.'-->';
 					// $thumbId = get_post_thumbnail_id(); 
@@ -83,9 +96,7 @@ $blank_image = THEMEURI . "images/rectangle.png";
 					
 					 
 					
-					// echo '<pre style="background-color: #fff;">';
-					// print_r($post);
-					// echo '</pre>';
+					
 					//include( get_stylesheet_directory() . '/parts/content-post-rest.php' );
 					
 					
@@ -234,7 +245,9 @@ $blank_image = THEMEURI . "images/rectangle.png";
 						$i++; 
 					}
 					// if we've reached 2 posts
-					if($q == 2){ break; }
+					if($q == 2){ 
+						break; 
+					}
 				endforeach;
 
 				//endwhile; wp_reset_postdata(); ?>

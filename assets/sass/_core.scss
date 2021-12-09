@@ -6074,6 +6074,12 @@ body.single-instructions {
 		color: #FFF;
 	}
 }
+.job-group {
+	display: none;
+	&.show-dept {
+		display: block;
+	}
+}
 .filter-wrapper {
 	width: 100%;
 	float: left;
@@ -6100,7 +6106,7 @@ body.single-instructions {
 		margin-left: -6px;
 		margin-right: -6px;
 	}
-	.select-wrap {
+	.select-wrap, .select-wrap-man {
 		width: 100%;
 		position: relative;
 		padding-left: 6px;
@@ -6141,7 +6147,12 @@ body.single-instructions {
 			}
 		}
 	}
-	.facetwp-facet {
+	.facetwp-dropdown-man {
+		border-radius: 0;
+		height: 37px;
+		border: 1px solid $gray_dark;
+	}
+	.facetwp-facet, .facetwp-facet-man {
 		margin-bottom: 0;
 		.fs-wrap {
 			width: 70%;
