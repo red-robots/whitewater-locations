@@ -3,6 +3,7 @@ $postid = get_the_ID();
 while ( have_posts() ) : the_post(); 
 	$top_notification = get_field("top_notification");
 	$main_description = get_field("activity_descr");
+	$disclaimer = get_field('disclaimer');
 	$taxonomy = 'pass_type';
 	$categories = get_the_terms($postid,$taxonomy);
 	$catSlugs = array();
@@ -632,3 +633,13 @@ while ( have_posts() ) : the_post();
 	/* FAQS JAVASCRIPT */ 
 	include( locate_template('inc/faqs-script.php') ); 
 	?>
+	<?php 
+		
+		if( $disclaimer ) {
+	 ?>
+	 <div class="activity-disclaimer">
+	 	<div class="adwrapper">
+	 		<?php echo $disclaimer; ?>
+	 	</div>
+	 </div>
+	<?php } ?>
