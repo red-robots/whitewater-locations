@@ -144,14 +144,14 @@ function js_custom_init() {
             'menu_icon' => 'dashicons-buddicons-community',
             'supports'  => array('title','editor')
         ),
-        // array(
-        //     'post_type' => 'stores',
-        //     'menu_name' => 'Outfitters',
-        //     'plural'    => 'Outfitters',
-        //     'single'    => 'Outfitter',
-        //     'menu_icon' => 'dashicons-store',
-        //     'supports'  => array('title','editor')
-        // ),
+        array(
+            'post_type' => 'stores',
+            'menu_name' => 'Outfitters',
+            'plural'    => 'Outfitters',
+            'single'    => 'Outfitter',
+            'menu_icon' => 'dashicons-store',
+            'supports'  => array('title','editor')
+        ),
         array(
             'post_type' => 'instructions',
             'menu_name' => 'Instructions',

@@ -1719,8 +1719,8 @@ body.nav-open .menu-toggle{opacity:0}
 #subpageSlides .flex-control-paging li a.flex-active{background-color:white}
 #subpageSlides.flexslider:hover .flex-direction-nav .flex-prev{left:30px}
 #subpageSlides .flex-direction-nav a,.gallerycol .flex-direction-nav a{text-shadow:none}
-body.single-activity .intro-galleries .flexwrap{position:relative}
-body.single-activity #subpageSlides{width:100% !important;height:100% !important;padding-left:0 !important;border-radius:0 !important}
+body.single-activity .intro-galleries .flexwrap,body.single-accommodation .intro-galleries .flexwrap{position:relative}
+body.single-activity #subpageSlides,body.single-accommodation #subpageSlides{width:100% !important;height:100% !important;padding-left:0 !important;border-radius:0 !important}
 .site-content{width:100%;float:left}
 .homerow{width:100%;float:left}
 .homerow .wrapper.inner-content{padding-top:50px;padding-bottom:50px}
@@ -3620,7 +3620,7 @@ section.route-stories.half .block{width:50%}
 #banner.subpageBanner{margin-top:0}
 #banner.taxonomy-banner .static-banner{height:600px}
 #banner.taxonomy-banner .static-banner img.actual-image{display:none}
-body.single-activity #subpageSlides ul.slides,body.single-activity #subpageSlides li.sub-slide-item,body.single-activity #subpageSlides .slide-image{height:100% !important}
+body.single-activity #subpageSlides ul.slides,body.single-activity #subpageSlides li.sub-slide-item,body.single-activity #subpageSlides .slide-image,body.single-accommodation #subpageSlides ul.slides,body.single-accommodation #subpageSlides li.sub-slide-item,body.single-accommodation #subpageSlides .slide-image{height:100% !important}
 .homerow .activities .imagebox{width:33.33%}
 .featured-events-section .postbox{width:33.33%}
 .featured-events-section.festival .postbox{width:25%}
