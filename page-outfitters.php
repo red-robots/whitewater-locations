@@ -68,7 +68,7 @@ get_header(); ?>
 
 		<?php endwhile; ?>
 
-		<?php get_template_part("parts/post-type-stores"); ?>
+		<?php get_template_part("parts/store-tiles"); ?>
 
 	</main><!-- #main -->
 </div><!-- #primary -->
