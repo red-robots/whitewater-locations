@@ -1,81 +1,4 @@
-
 <?php
-
-
-// Job Type "jobtype"
-// - Full time = 51
-// - Part time = 48
-
-// Job Locations "joblocation"
-// - Charlotte = 50
-
-// Job Departments "department"
-// - Administration = 52
-// - Facilities = 55
-// - Food & Beverage = 54
-// - Guest Services = 53
-// - Outdoor Activities = 49
-// - Water Sports = 95
-$Administration = array();
-$Facilities = array();
-$Food = array();
-$Guest = array();
-$Outdoor = array();
-$Water = array();
-
-
-
-// $response = wp_remote_get( 'https://whitewater.org/wp-json/wp/v2/job?per_page=100&jobtype=51' );
-$response = wp_remote_get( 'https://whitewater.org/wp-json/wp/v2/job?per_page=100' );
-// echo '<pre style="background-color: #fff;">';
-// print_r($response);
-// echo '<?pre>';
-        if( is_array($response) ) :
-            $code = wp_remote_retrieve_response_code( $response );
-            if(!empty($code) && intval(substr($code,0,1))===2): 
-                $body = json_decode(wp_remote_retrieve_body( $response),true);
-
-
-$count = 0;
-
-            foreach ($body as $post) :
-
-            	if( $post['department']['0'] == '52' ) {
-            		$Administration[] = $post;
-            	} elseif( $post['department']['0'] == '55' ) {
-            		$Facilities[] = $post;
-            	} elseif( $post['department']['0'] == '54' ) {
-            		$Food[] = $post;
-            	} elseif( $post['department']['0'] == '53' ) {
-            		$Guest[] = $post;
-            	} elseif( $post['department']['0'] == '49' ) {
-            		$Outdoor[] = $post;
-            	} elseif( $post['department']['0'] == '95' ) {
-            		$Water[] = $post;
-            	} 
-					// $thumbId = get_post_thumbnail_id(); 
-					// $featImg = wp_get_attachment_image_src($thumbId,'large');
-					// $featImg = $post['fimg_url'];
-					// // $featThumb = wp_get_attachment_image_src($thumbId,'thumbnail');
-					// $featThumb = $post['acf']['image']['url'];
-
-					// $content = $post['content'];
-					// $title = $post['title']['rendered'];
-					// $divclass = (($content || $title) && $featImg) ? 'half':'full';
-					// $pagelink = $post['link'];
-
-					// echo '<pre style="background-color: #fff;">';
-					// print_r($Administration);
-					// echo '<?pre>';
-
-					//echo '<li>'.$title.'</li>';
-
-			endforeach;
-			// echo $count;
-endif;endif;
-
-
-
 	$defaultLocation = get_default_job_location();
 	$title4 = get_field("title4");
 	$canceledImage = THEMEURI . "images/canceled.svg";
@@ -168,77 +91,7 @@ if( $posts->have_posts() ) { ?>
 			</div>
 			<?php } ?>
 
-			<?php /* Filter Options */ 
-
-					// Job Types
-					// $jobType = get_terms(
-				 //        array(
-				 //            'taxonomy' => 'jobtype',
-				 //            'hide_empty' => true
-				 //        )
-				 //    );
-				    // Job Locations
-					// $jobLocation = get_terms(
-				 //        array(
-				 //            'taxonomy' => 'joblocation',
-				 //            'hide_empty' => true
-				 //        )
-				 //    );
-				 //    // Departments
-					// $department = get_terms(
-				 //        array(
-				 //            'taxonomy' => 'department',
-				 //            'hide_empty' => true
-				 //        )
-				 //    );
-				$jT = array();
-				$jL = array();
-				$jD = array();
-				// Job Types
-				    $jobType = wp_remote_get('https://whitewater.org/wp-json/wp/v2/jobtype');
-				    if( is_array($jobType) ) :
-			            $code = wp_remote_retrieve_response_code( $jobType );
-				            if(!empty($code) && intval(substr($code,0,1))===2): 
-				                $bodyType = json_decode(wp_remote_retrieve_body( $jobType),true);
-						    	// Add to array for later
-				            foreach( $body as $jobT ) {
-				            	$jL['slug'] = $jobT['slug'];
-				            	$jL['name'] = $jobT['name'];
-				            }
-					endif; endif;
-					// Job Types
-				    $jobLocation = wp_remote_get('https://whitewater.org/wp-json/wp/v2/joblocation');
-				    if( is_array($jobLocation) ) :
-			            $code = wp_remote_retrieve_response_code( $jobLocation );
-				            if(!empty($code) && intval(substr($code,0,1))===2): 
-				                $bodyLocation = json_decode(wp_remote_retrieve_body( $jobLocation),true);
-						    	// Add to array for later
-				            foreach( $body as $jobT ) {
-				            	$jT['slug'] = $jobT['slug'];
-				            	$jT['name'] = $jobT['name'];
-				            }
-					endif; endif;
-					// Job Types
-				    $department = wp_remote_get('https://whitewater.org/wp-json/wp/v2/department');
-				    if( is_array($department) ) :
-			            $code = wp_remote_retrieve_response_code( $department );
-				            if(!empty($code) && intval(substr($code,0,1))===2): 
-				                $bodyDepartment = json_decode(wp_remote_retrieve_body( $department),true);
-						    	// Add to array for later
-				            // foreach( $body as $jobT ) {
-				            // 	$jD['slug'] = $jobT['slug'];
-				            // 	$jD['name'] = $jobT['name'];
-				            // }
-					endif; endif;
-					// echo '<pre>';
-				 //    print_r($jL);
-				 //    echo '</pre>';
-
-				 //    // echo $jL['slug'];
-				 //    foreach( $jL as $j ) {
-				 //    	echo '<< '.$j['slug'].' >>';
-				 //    }
-			?>
+			<?php /* Filter Options */ ?>
 			<div class="filter-wrapper filterstyle optionsnum3">
 				<div id="filterWap" class="wrapper">
 					
@@ -249,56 +102,7 @@ if( $posts->have_posts() ) { ?>
 								<div class="inside"><span>Filter By</span></div>
 							</div>
 
-							
-							<?php if( !empty($bodyLocation) ) { ?>
-								<div class="filter-group" data-filter-group="job-location">
-									<div class="select-wrap-man ">
-										<div class="facetwp-facet-man  facetwp-type-fselect-man">
-											<select class="filters-select facetwp-dropdown-man" >
-												<option value="*">Location</option>
-												<?php foreach( $bodyLocation as $j ) { ?>
-													<option value=".<?php echo $j['slug']; ?>"><?php echo $j['name']; ?></option>
-												<?php } ?>
-											</select>
-										</div> 
-									</div>
-								</div>
-							<?php } ?>
-							<?php if( !empty($bodyType) ) { ?>
-								<div class="filter-group" data-filter-group="job-type">
-									<div class="select-wrap-man ">
-										<div class="facetwp-facet-man  facetwp-type-fselect-man">
-											<select class="filters-select facetwp-dropdown-man" >
-												<option value="*">Position Type</option>
-												<?php foreach( $bodyType as $j ) { ?>
-													<option value=".<?php echo $j['slug']; ?>"><?php echo $j['name']; ?></option>
-												<?php } ?>
-											</select>
-										</div> 
-									</div>
-								</div>
-							<?php } ?>
-							<?php if( !empty($bodyDepartment) ) { ?>
-								<div class="filter-group" data-filter-group="job-department">
-									<div class="select-wrap-man ">
-										<div class="facetwp-facet-man  facetwp-type-fselect-man">
-											<select class="filters-select-dept facetwp-dropdown-man" >
-												<option value="*">Department</option>
-												<?php foreach( $bodyDepartment as $j ) { ?>
-													<option value="<?php echo $j['slug']; ?>"><?php echo $j['name']; ?></option>
-												<?php } ?>
-											</select>
-										</div> 
-									</div>
-								</div>
-							<?php } ?>
-
-							<div class="button-group">
-								<button class="is_checked">asdffdf</button>
-							</div>
-
-
-							<!-- <?php if ( do_shortcode('[facetwp facet="job_locations"]') ) { ?>
+							<?php if ( do_shortcode('[facetwp facet="job_locations"]') ) { ?>
 							<div class="select-wrap jobLoc">
 								<?php echo do_shortcode('[facetwp facet="job_locations"]'); ?>
 							</div>
@@ -314,199 +118,89 @@ if( $posts->have_posts() ) { ?>
 							<div class="select-wrap jobDept">
 								<?php echo do_shortcode('[facetwp facet="job_department"]'); ?>
 							</div>
-							<?php } ?> -->
+							<?php } ?>
 
-							<!-- <button onclick="FWP.reset()" class="resetBtn jobs"><span>Reset</span></button> -->
+							<button onclick="FWP.reset()" class="resetBtn jobs"><span>Reset</span></button>
 
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<?php /* Entries */ 
-				$jobLocation = '';
-				$jobTypesList = '';
-				function jobtype($type) {
-					$a = '';
-					if($type == '51') {
-						$a = 'full-time-positions';
-					} elseif($type == '48') {
-						$a = 'part-time-and-seasonal-positions';
-					}
-					return $a;
-				}
-				function joblocation($loc) {
-					$b = '';
-					if($loc == '50') {
-						$b = 'charlotte';
-					} //elseif($loc == '48') {
-					// 	$b = 'part-time';
-					// }
-					return $b;
-				}
-				function depart($dept) {
-					$c = '';
-					if($dept == '52') {
-						$c = 'administration';
-					} elseif($dept == '55') {
-						$c = 'facilities';
-					} elseif($dept == '45') {
-						$c = 'food-and-beverage';
-					} elseif($dept == '53') {
-						$c = 'guest-services';
-					} elseif($dept == '49') {
-						$c = 'outdoor-activities';
-					} elseif($dept == '95') {
-						$c = 'water-sports';
-					}
-					return $c;
-				}
-			?>
-			
-			<div class="post-type-entries columns3 <?php echo $postype ?> ">
-				<div class="wrapper employment-grid">
+			<?php /* Entries */ ?>
+			<div class="post-type-entries columns3 <?php echo $postype ?>">
+				<div class="wrapper">
 					<div id="data-container">
 						<div class="posts-inner">
 							
 							<div class="flex-inner">
-
-								<?php if($Administration) { ?>
-								<div class="job-group show-dept administration">
-									<div class="job-department"><span>Administration</span></div>
-									<?php 
-									foreach( $Administration as $job ) { 
-											$link = $job['link'];
-											$title = $job['title']['rendered'];
-											$type = $job['jobtype']['0'];
-											$loc = $job['joblocation']['0'];
-											$dept = $job['department']['0'];
-											// echo '<pre style="text-align: left;">';
-											// print_r($job);
-											// echo '</pre>';
-										?>
-										<div class="joblist <?php echo jobtype($type).' '.joblocation($loc); ?>">
-											<a href="<?php echo $link ?>" target="_blank"><?php echo $title; ?></a>
-											<?php if ($jobLocation) { ?>
-											<div class="loc">(<?php echo $jobTypesList . $jobLocation ?>)</div>	
+								<?php if ($postsByDepartment) { ?>
+									
+									<?php foreach ($postsByDepartment as $p) {
+										$department = $p['department'];
+										$entries = $p['entries'];
+										if($entries) { ?>
+										<div class="job-group">
+											<div class="job-department"><span><?php echo $department ?></span></div>
+											<?php foreach($entries as $e) { 
+											$pid = $e->ID; 
+											$title = $e->post_title;
+											$link = get_permalink($pid); 
+											$locations = get_the_terms($pid,'joblocation');
+											$jobtypes = get_the_terms($pid,'jobtype');
+											$jobLocation = '';
+											$jobTypesList = '';
+											if($locations) {
+												$i=1;
+												foreach($locations as $loc) {
+													$comma = ($i>1) ? ', ':'';
+													$jobLocation .= $comma . $loc->name;
+													$i++;
+												}
+											}
+											if($countLocation>1) {
+												
+											} else {
+												$jobLocation = '';
+											}
+											// if($jobtypes) {
+											// 	$j=1;
+											// 	foreach($jobtypes as $jt) {
+											// 		$comma = ($j>1) ? ', ':'';
+											// 		$jobTypesList .= $comma . $jt->name;
+											// 		$j++;
+											// 	}
+											// }
+											
+											// if($job_type) {
+											// 	if($jobTypesList) {
+											// 		$jobTypesList = $jobTypesList . ' &ndash; ';
+											// 	}
+											// } else {
+											// 	$jobTypesList = '';
+											// }
+											?>
+											<div class="joblist show">
+												<a href="<?php echo $link ?>"><?php echo $title; ?></a>
+												<?php if ($jobLocation) { ?>
+												<div class="loc">(<?php echo $jobTypesList . $jobLocation ?>)</div>	
+												<?php } ?>
+											</div>	
 											<?php } ?>
-										</div>	
+										</div>
+										<?php } ?>
 									<?php } ?>
-								</div>
+
+									<?php $i=1; while ( $posts->have_posts()) : $posts->the_post(); ?>
+										<div class="hide" style="display:none;"><?php echo get_the_title(); ?></div>
+									<?php $i++; endwhile; wp_reset_postdata(); ?>
+
 								<?php } ?>
-
-								<?php if($Facilities) { ?>
-								<div class="job-group show-dept facilities">
-									<div class="job-department"><span>Facilities</span></div>
-									<?php 
-									foreach( $Facilities as $job ) { 
-											$link = $job['link'];
-											$title = $job['title']['rendered'];
-											$type = $job['jobtype']['0'];
-											$loc = $job['joblocation']['0'];
-											$dept = $job['department']['0'];
-										?>
-										<div class="joblist <?php echo jobtype($type).' '.joblocation($loc); ?>">
-											<a href="<?php echo $link ?>" target="_blank"><?php echo $title; ?></a>
-											<?php if ($jobLocation) { ?>
-											<div class="loc">(<?php echo $jobTypesList . $jobLocation ?>)</div>	
-											<?php } ?>
-										</div>	
-									<?php } ?>
-								</div>
-								<?php } ?>
-
-								<?php if($Food) { ?>
-								<div class="job-group show-dept food-and-beverage">
-									<div class="job-department"><span>Food & Beverage</span></div>
-									<?php 
-									foreach( $Food as $job ) { 
-											$link = $job['link'];
-											$title = $job['title']['rendered'];
-											$type = $job['jobtype']['0'];
-											$loc = $job['joblocation']['0'];
-											$dept = $job['department']['0'];
-										?>
-										<div class="joblist <?php echo jobtype($type).' '.joblocation($loc); ?>">
-											<a href="<?php echo $link ?>" target="_blank"><?php echo $title; ?></a>
-											<?php if ($jobLocation) { ?>
-											<div class="loc">(<?php echo $jobTypesList . $jobLocation ?>)</div>	
-											<?php } ?>
-										</div>	
-									<?php } ?>
-								</div>
-								<?php } ?>
-
-								<?php if($Guest) { ?>
-								<div class="job-group show-dept guest-services">
-									<div class="job-department"><span>Guest Services</span></div>
-									<?php 
-									foreach( $Guest as $job ) { 
-											$link = $job['link'];
-											$title = $job['title']['rendered'];
-											$type = $job['jobtype']['0'];
-											$loc = $job['joblocation']['0'];
-											$dept = $job['department']['0'];
-										?>
-										<div class="joblist <?php echo jobtype($type).' '.joblocation($loc); ?>">
-											<a href="<?php echo $link ?>" target="_blank"><?php echo $title; ?></a>
-											<?php if ($jobLocation) { ?>
-											<div class="loc">(<?php echo $jobTypesList . $jobLocation ?>)</div>	
-											<?php } ?>
-										</div>	
-									<?php } ?>
-								</div>
-								<?php } ?>
-
-								<?php if($Outdoor) { ?>
-								<div class="job-group show-dept outdoor-activities">
-									<div class="job-department"><span>Outdoor Activities</span></div>
-									<?php 
-									foreach( $Outdoor as $job ) { 
-											$link = $job['link'];
-											$title = $job['title']['rendered'];
-											$type = $job['jobtype']['0'];
-											$loc = $job['joblocation']['0'];
-											$dept = $job['department']['0'];
-										?>
-										<div class="joblist <?php echo jobtype($type).' '.joblocation($loc); ?>">
-											<a href="<?php echo $link ?>" target="_blank"><?php echo $title; ?></a>
-											<?php if ($jobLocation) { ?>
-											<div class="loc">(<?php echo $jobTypesList . $jobLocation ?>)</div>	
-											<?php } ?>
-										</div>	
-									<?php } ?>
-								</div>
-								<?php } ?>
-
-								<?php if($Water) { ?>
-								<div class="job-group show-dept water-sports">
-									<div class="job-department"><span>Water Sports</span></div>
-									<?php 
-									foreach( $Water as $job ) { 
-											$link = $job['link'];
-											$title = $job['title']['rendered'];
-											$type = $job['jobtype']['0'];
-											$loc = $job['joblocation']['0'];
-											$dept = $job['department']['0'];
-										?>
-										<div class="joblist <?php echo jobtype($type).' '.joblocation($loc).' '.depart($dept); ?>">
-											<a href="<?php echo $link ?>" target="_blank"><?php echo $title; ?></a>
-											<?php if ($jobLocation) { ?>
-											<div class="loc">(<?php echo $jobTypesList . $jobLocation ?>)</div>	
-											<?php } ?>
-										</div>	
-									<?php } ?>
-								</div>
-								<?php } ?>
-
-
-
-								
 
 								<?php 
 								if( $posts->have_posts() ) {
 									$i=1; while ( $posts->have_posts()) : $posts->the_post(); ?>
-										<!-- <div class="hide" style="display:none;"><?php echo get_the_title(); ?></div> -->
+										<div class="hide" style="display:none;"><?php echo get_the_title(); ?></div>
 									<?php $i++; endwhile; wp_reset_postdata(); 
 								} ?>
 							</div>
