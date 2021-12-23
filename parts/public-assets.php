@@ -18,8 +18,10 @@
 			
 			$pid = $ba->ID;
 			$title = $ba->post_title;
-			$pExcerpt = $ba->post_excerpt;
-			$description = ($ba->post_content) ? shortenText(strip_shortcodes(strip_tags($ba->post_content)),300," ","..."):'';
+			// $pExcerpt = $ba->post_excerpt;
+			$pExcerpt = get_field('excerpt',$pid);
+			// $description = ($ba->post_content) ? shortenText(strip_shortcodes(strip_tags($ba->post_content)),300," ","..."):'';
+			$description = get_field('content',$pid);;
 			if( $pExcerpt ) {
 				$description = $pExcerpt;
 			}
@@ -37,9 +39,7 @@
 				$btnURL = '';
 				$btnText = '';
 			}
-			// echo '<pre>';
-			// print_r($contentType);
-			// echo '</pre>';
+			
 		?>
 		<div id="entryBlock<?php echo $b?>" class="fbox <?php echo ($thumbnail) ? 'hasImage':'noImage'; ?>">
 			<div class="inside text-center">

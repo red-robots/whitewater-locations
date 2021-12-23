@@ -1,10 +1,21 @@
 <?php
 $show_content_only = ( isset($_GET['show']) && $_GET['show']=='contentonly' ) ? true : false;
-
+$pContent = get_field('content');
+$pBtn = get_field('button');
+			// echo '<pre>';
+			// print_r($pBtn);
+			// echo '</pre>';
 if($show_content_only) {
 
 		while ( have_posts() ) : the_post(); ?>
-			<div class="content-only"><?php the_content(); ?></div>
+			<div class="content-only"><?php echo $pContent; ?></div>
+			<?php if( $pBtn ) { ?>
+				<div class="popbtn">
+					<div class="buttondiv">
+						<a href="<?php echo $pBtn['url'] ?>" target="<?php echo $pBtn['target'] ?>" class="btn-sm xs btn-link"><span><?php echo $pBtn['title'] ?></span></a>	
+					</div>
+				</div>
+			<?php } ?>
 		<?php endwhile; 
 
 } else {
@@ -24,7 +35,10 @@ if($show_content_only) {
 	//$customPostTypes = array('activity','festival');
 	get_template_part("parts/subpage-banner");
 	$post_id = get_the_ID(); 
-
+	$pBtn = get_field('button');
+			echo '<pre>';
+			print_r($pBtn);
+			echo '</pre>';
 	?>
 		
 	<div id="primary" class="content-area-full content-default single-post <?php echo $has_hero;?> post-type-<?php echo $post_type;?>">

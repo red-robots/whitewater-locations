@@ -1337,6 +1337,15 @@ h2.stitle,
 	letter-spacing: 2px;
 	color: #000;
 }
+.popbtn {
+	width: 100%;
+	float: left;
+	text-align: center;
+	.buttondiv {
+		display: inline-block;
+		margin-top: 10px !important;
+	}
+}
 .buttondiv {
 	margin-top: 20px;
 }
@@ -8033,7 +8042,7 @@ body.pageNoBanner {
 				font-size: 16px;
 				font-weight: 400;
 				text-transform: uppercase;
-				margin: 0 0;
+				margin: 0 0 10px 0;
 			}
 		}
 	}

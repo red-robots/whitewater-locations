@@ -1740,6 +1740,8 @@ body.single-activity #subpageSlides,body.single-accommodation #subpageSlides{wid
 .homerow.row2{background-color:#f2f2f2;padding-bottom:5px}
 .homerow.row3{background-color:#FFF}
 h2.stitle,.stitle{margin:0;text-transform:uppercase;font-family:"Lato",sans-serif;font-weight:400;font-size:25px;letter-spacing:2px;color:#000}
+.popbtn{width:100%;float:left;text-align:center}
+.popbtn .buttondiv{display:inline-block;margin-top:10px !important}
 .buttondiv{margin-top:20px}
 .btn-sm{cursor:pointer;display:inline-block;text-decoration:none !important;color:#5a5959;padding:7px 25px;border:1px solid #a2a2a2;overflow:hidden;position:relative;font-size:20px;font-weight:600;border-radius:0;-webkit-appearance:none;-webkit-box-shadow:none;box-shadow:none;min-width:85px}
 .btn-sm.popdata,.btn-sm.xs{padding:7px 15px 6px;font-size:15px;line-height:1.2}
@@ -2707,7 +2709,7 @@ body.pageNoBanner .site-content{min-height:35em}
 .group-events-activities.section-content .fbox .imagediv .img,.grid-images .fbox .imagediv .img,.section-grid-images.section-content .fbox .imagediv .img,.camp-activities.section-content .fbox .imagediv .img{display:block;background-size:cover;background-position:center;background-repeat:no-repeat;width:100%;height:100%;-webkit-transition:all ease .3s;transition:all ease .3s;position:absolute;top:0;left:0}
 .group-events-activities.section-content .fbox img.placeholder,.grid-images .fbox img.placeholder,.section-grid-images.section-content .fbox img.placeholder,.camp-activities.section-content .fbox img.placeholder{width:100%;height:auto;float:left}
 .group-events-activities.section-content .fbox .titlediv,.grid-images .fbox .titlediv,.section-grid-images.section-content .fbox .titlediv,.camp-activities.section-content .fbox .titlediv{width:100%;float:left;padding:30px 20px}
-.group-events-activities.section-content .fbox .titlediv .name,.grid-images .fbox .titlediv .name,.section-grid-images.section-content .fbox .titlediv .name,.camp-activities.section-content .fbox .titlediv .name{font-size:16px;font-weight:400;text-transform:uppercase;margin:0}
+.group-events-activities.section-content .fbox .titlediv .name,.grid-images .fbox .titlediv .name,.section-grid-images.section-content .fbox .titlediv .name,.camp-activities.section-content .fbox .titlediv .name{font-size:16px;font-weight:400;text-transform:uppercase;margin:0 0 10px 0}
 .group-events-activities.section-content.columns4,.grid-images.columns4,.section-grid-images.section-content.columns4,.camp-activities.section-content.columns4{padding-top:40px;padding-bottom:5px}
 .group-events-activities.section-content.columns4 .fbox,.grid-images.columns4 .fbox,.section-grid-images.section-content.columns4 .fbox,.camp-activities.section-content.columns4 .fbox{width:100%}
 .grid-images .entryList{margin-left:-8px;margin-right:-8px}
